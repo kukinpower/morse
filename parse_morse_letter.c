@@ -1,14 +1,72 @@
 #include "morse.h"
 
+static char parse_morse_digit(char *code)
+{
+	int 	i;
+
+	i = 0;
+	if (code[i] == '.')
+	{
+		i++;
+		if (code[i] == '.')
+		{
+			i++;
+			if (code[i] == '.')
+			{
+				i++;
+				if (code[i] == '.')
+				{
+					i++;
+					if (code[i] == '.')
+						return ('5');
+					else if (code[i] == '-')
+						return ('4');
+				}
+				else if (code[i] == '-')
+					return ('3');
+			}
+			else if (code[i] == '-')
+				return ('2');
+		}
+		else if (code[i] == '-')
+			return ('1');
+	}
+	else if (code[i] == '-')
+	{
+		i++;
+		if (code[i] == '-')
+		{
+			i++;
+			if (code[i] == '-')
+			{
+				i++;
+				if (code[i] == '-')
+				{
+					i++;
+					if (code[i] == '-')
+						return ('0');
+					else if (code[i] == '.')
+						return ('9');
+				}
+				else if (code[i] == '.')
+					return ('8');
+			}
+			else if (code[i] == '.')
+				return ('7');
+		}
+		else if (code[i] == '.')
+			return ('6');
+	}
+	return (0);
+}
+
 char	parse_morse_letter(char *code) //Capital letter or simple?
 {
 	size_t	len;
-	char	*is;
 	int		i;
 
 	len = ft_strlen(code);
 	i = 0;
-	is = NULL;
 	if (len == 1)
 	{
 		if (code[i] == '-')
@@ -150,5 +208,7 @@ char	parse_morse_letter(char *code) //Capital letter or simple?
 		}
 
 	}
+	else if (len == 5)
+		return (parse_morse_digit(code));
 	return (0);
 }

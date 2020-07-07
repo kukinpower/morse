@@ -1,32 +1,43 @@
 #include "morse.h"
 
-_Bool 	init_alpha(t_alpha *t)
+void 	init_alpha(t_alpha *t)
 {
-	t->a = ft_strdup(".-");
-	t->b = ft_strdup("-...");
-	t->c = ft_strdup("-.-.");
-	t->d = ft_strdup("-..");
-	t->e = ft_strdup(".");
-	t->f = ft_strdup("..-.");
-	t->g = ft_strdup("--.");
-	t->h = ft_strdup("....");
-	t->i = ft_strdup("..");
-	t->j = ft_strdup(".---");
-	t->k = ft_strdup("-.-");
-	t->l = ft_strdup(".-..");
-	t->m = ft_strdup("--");
-	t->n = ft_strdup("-.");
-	t->o = ft_strdup("---");
-	t->p = ft_strdup(".--.");
-	t->q = ft_strdup("--.-");
-	t->r = ft_strdup(".-.");
-	t->s = ft_strdup("...");
-	t->t = ft_strdup("-");
-	t->u = ft_strdup("..-");
-	t->v = ft_strdup("...-");
-	t->w = ft_strdup(".--");
-	t->x = ft_strdup("-..-");
-	t->y = ft_strdup("-.--");
-	t->z = ft_strdup("--..");
-	return (1);
+	ft_strcpy(t->a,".- ");
+	ft_strcpy(t->b,"-... ");
+	ft_strcpy(t->c,"-.-. ");
+	ft_strcpy(t->d,"-.. ");
+	ft_strcpy(t->e,". ");
+	ft_strcpy(t->f,"..-. ");
+	ft_strcpy(t->g,"--. ");
+	ft_strcpy(t->h,".... ");
+	ft_strcpy(t->i,".. ");
+	ft_strcpy(t->j,".--- ");
+	ft_strcpy(t->k,"-.- ");
+	ft_strcpy(t->l,".-.. ");
+	ft_strcpy(t->m,"-- ");
+	ft_strcpy(t->n,"-. ");
+	ft_strcpy(t->o,"--- ");
+	ft_strcpy(t->p,".--. ");
+	ft_strcpy(t->q,"--.- ");
+	ft_strcpy(t->r,".-. ");
+	ft_strcpy(t->s,"... ");
+	ft_strcpy(t->t,"- ");
+	ft_strcpy(t->u,"..- ");
+	ft_strcpy(t->v,"...- ");
+	ft_strcpy(t->w,".-- ");
+	ft_strcpy(t->x,"-..- ");
+	ft_strcpy(t->y,"-.-- ");
+	ft_strcpy(t->z,"--.. ");
+	ft_strcpy(t->slash,"/ ");
+
+	ft_strcpy(t->one,".---- ");
+	ft_strcpy(t->two,"..--- ");
+	ft_strcpy(t->three,"...-- ");
+	ft_strcpy(t->four,"....- ");
+	ft_strcpy(t->five,"..... ");
+	ft_strcpy(t->six,"-.... ");
+	ft_strcpy(t->seven,"--... ");
+	ft_strcpy(t->eight,"---.. ");
+	ft_strcpy(t->nine,"----. ");
+	ft_strcpy(t->zero,"----- ");
 }

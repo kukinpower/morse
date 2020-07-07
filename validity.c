@@ -17,16 +17,15 @@ static _Bool	ismorse(char c)
 
 static _Bool	isvalid(char c)
 {
-	char	m[] = "!";
 	int		i;
 
 	i = 0;
-	if (ft_isalpha(c) || c == m[i]) //make loop
+	if (ft_isalpha(c) || ft_isdigit(c)) // || c == ' ' || c == '!'
 		return (1);
 	return (0);
 }
 
-_Bool 			text_validity(char **line, char *what)
+_Bool 			text_validity(char **line, char *w)
 {
 	int		i;
 	int		flag;
@@ -48,7 +47,7 @@ _Bool 			text_validity(char **line, char *what)
 		}
 		if ((*line)[i])
 			return (0);
-		*what = 'm';
+		(*w) = 'm';
 		return (1);
 	}
 	else if (!flag)
@@ -59,7 +58,7 @@ _Bool 			text_validity(char **line, char *what)
 		}
 		if ((*line)[i])
 			return (0);
-		*what = 'a';
+		(*w) = 'a';
 		return (1);
 	}
 	return (0);
