@@ -43,7 +43,6 @@ char 	*alpha_to_morse(char c, size_t *l)
 int		print_morse(char **line)
 {
 	int	i;
-	char	*str;
 	size_t 	len;
 
 	i = 0;
@@ -62,18 +61,24 @@ int 	morse(char **line)
 
 	if (!(text_validity(line, &what)))
 	{
-		free(*line);
 		write(1, "error", 5);
 		return (-1);
 	}
 	if (what == 'm')
-		parse_line(*line);
+	{
+		if (!(parse_line(*line)))
+			return (0);
+	}
 	else if (what == 'a')
-		print_morse(line);
-	return (0);
+	{
+		if (!(print_morse(line)))
+			return (0);
+	}
+	return (1);
 }
 
-int 	main() {
+int 	main()
+{
 	int fd;
 	int i;
 	char *line = 0;
@@ -106,7 +111,6 @@ int 	main() {
 		printf("%d\n", (int)ft_strlen(filename));
 		if (!(file = ft_strjoin("../", filename)))
 			return (0);
-		free(filename);
 		if (!(fd = open(file, O_RDONLY)))
 		{
 			printf("\nError in open\n");
@@ -120,8 +124,15 @@ int 	main() {
 	while ((i = get_next_line(fd, &line)) > 0)
 	{
 		if ((morse(&line)) == -1)
+		{
+			ft_free_and_clear(line);
 			return (-1);
+		}
 		write(1, "\n", 1);
-		free(line);
+		ft_free_and_clear(line);
 	}
+	close(fd);
+	if (file)
+		ft_free_and_clear(file);
+
 }

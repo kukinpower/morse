@@ -7,12 +7,13 @@ int 	parse_line(char *str)
 	char *ptr_space;
 	int	j;
 	char *toprint;
-	char *check_space;
 	char	c;
 
 	i = 0;
 	j = 0;
 	ptr_space = NULL;
+	letters = NULL;
+	toprint = NULL;
 	if ((ptr_space = ft_strchr(str, ' ')))
 	{
 		if (!(letters = ft_split(str, ' ')))
@@ -26,14 +27,16 @@ int 	parse_line(char *str)
 		}
 		toprint[i] = '\0';
 		write(1, toprint, ft_strlen(toprint));
+		ft_free_and_clear(toprint);
+		if (letters)
+			ft_free2d(letters);
+		letters = NULL;
 	}
 	else
 	{
 		c = parse_morse_letter(str);
 		write(1, &c, 1);
 	}
-	ft_free_and_clear(toprint);
-
 
 	return (0);
 }
