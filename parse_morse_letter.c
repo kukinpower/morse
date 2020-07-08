@@ -60,7 +60,7 @@ static char parse_morse_digit(char *code)
 	return (0);
 }
 
-char	parse_morse_letter(char *code) //Capital letter or simple?
+char	parse_morse_letter(char *code)
 {
 	size_t	len;
 	int		i;
@@ -147,8 +147,6 @@ char	parse_morse_letter(char *code) //Capital letter or simple?
 				{
 					if (code[3] == '.')
 						return ('F');
-//					else if (code[3] == '-') // [..--]
-//						return ('V');
 				}
 			}
 			else if (code[1] == '-')
@@ -156,16 +154,14 @@ char	parse_morse_letter(char *code) //Capital letter or simple?
 				if (code[2] == '.')
 				{
 					if (code[3] == '.')
-						return ('L'); // L = [.-..]
-//					else if (code[3] == '-') // [.-.-]
-//						return ('');
+						return ('L');
 				}
 				else if (code[2] == '-')
 				{
 					if (code[3] == '.')
-						return ('P'); // P = [.--.]
+						return ('P');
 					else if (code[3] == '-')
-						return ('J'); // J = [.---]
+						return ('J');
 				}
 			}
 		}
@@ -176,15 +172,15 @@ char	parse_morse_letter(char *code) //Capital letter or simple?
 				if (code[2] == '.')
 				{
 					if (code[3] == '.')
-						return ('B'); // B = [-...]
+						return ('B');
 					else if (code[3] == '-')
-						return ('X'); // X = [-..-]
+						return ('X');
 				}
 				else if (code[2] == '-')
 				{
 					if (code[3] == '.')
-						return ('C'); // C = [-.-.]
-					else if (code[3] == '-') // Y = [-.--]
+						return ('C');
+					else if (code[3] == '-')
 						return ('Y');
 				}
 			}
@@ -193,17 +189,10 @@ char	parse_morse_letter(char *code) //Capital letter or simple?
 				if (code[2] == '.')
 				{
 					if (code[3] == '.')
-						return ('Z'); // Z = [--..]
-					else if (code[3] == '-') // Q = [--.-]
+						return ('Z');
+					else if (code[3] == '-')
 						return ('Q');
 				}
-//				else if (code[2] == '-')
-//				{
-//					if (code[3] == '.')
-//						return ('P'); // P = [.--.]
-//					else if (code[3] == '-')
-//						return ('J'); // J = [.---]
-//				}
 			}
 		}
 
