@@ -1,32 +1,21 @@
 #include "morse.h"
 
-int 	main()
+int 		main()
 {
-	int fd;
-	int i;
-	char *line = 0;
-	int desire;
-	int choice;
-	char filename[256];
+	int		fd;
+	int 	i;
+	char	*line = 0;
+	int		desire;
+	char	filename[256];
 	char	*file;
-//	char d[2];
-//	int	bytes_read;
 
-	choice = 1;
 	ft_printf("Do you want to use stdin or read from file?\n1 - stdinput\n2 - file\n");
 	scanf("%d", &desire);
-//	bytes_read = read()
-	ft_printf("%d\n", desire);
-	if (desire == 1 || desire == 2)
-		choice = 0;
-	else
-		desire = 0;
-	while (choice)
+	if (desire != 1 && desire != 2)
 	{
 		ft_printf("Please choose 1 or 2 only\n1 - stdinput\n2 - file\n");
-		scanf("%d", &desire);
-		if (desire == 1 || desire == 2)
-			choice = 0;
+		ft_printf("exit");
+		return (-1);
 	}
 	if (desire == 2)
 	{
@@ -59,5 +48,5 @@ int 	main()
 	close(fd);
 	if (file)
 		file = ft_free_and_clear(file);
-
+	return (0);
 }

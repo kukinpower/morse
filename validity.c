@@ -20,7 +20,7 @@ static _Bool	isvalid(char c)
 	int		i;
 
 	i = 0;
-	if (ft_isalpha(c) || ft_isdigit(c)) // || c == ' ' || c == '!'
+	if (ft_isalpha(c) || ft_isdigit(c) || c == ' ' ) // || c == '!'
 		return (1);
 	return (0);
 }
